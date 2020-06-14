@@ -23,7 +23,7 @@ public class DisplayJokesActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         if (intent.hasExtra(Intent.EXTRA_TEXT)){
-            String jokeToDisplay = intent.getStringExtra(Intent.EXTRA_TEXT);
+            CharSequence jokeToDisplay = intent.getCharSequenceExtra(Intent.EXTRA_TEXT);
             tvJoke.setText(jokeToDisplay);
         }
         else {

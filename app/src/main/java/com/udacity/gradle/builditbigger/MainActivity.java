@@ -2,14 +2,17 @@ package com.udacity.gradle.builditbigger;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.style.RelativeSizeSpan;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.noelrmrz.jokeslibrary.JokesLibrary;
 import com.noelrmrz.displayjokes.DisplayJokesActivity;
+import com.noelrmrz.jokeslibrary.JokesLibrary;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -21,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -46,10 +48,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-        //Toast.makeText(this, jokesLibrary.getJoke(), Toast.LENGTH_SHORT).show();
+        String joke = jokesLibrary.getJoke();
+        CharSequence[] split = joke.split(" ");
+        SpannableString spannableString = new SpannableString(split[0]);
+        spannableString.setSpan(new RelativeSizeSpan(2f), 0, split[0].length(),
+                SpannableString.SPAN_INCLUSIVE_EXCLUSIVE);
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        spannableStringBuilder.append(spannableString);
+
+        for (int x = 1; x < split.length; x++) {
+            spannableStringBuilder.append(" " + split[x]);
+        }
 
         Intent intent = new Intent(this, DisplayJokesActivity.class);
-        intent.putExtra(Intent.EXTRA_TEXT, jokesLibrary.getJoke());
+        intent.putExtra(Intent.EXTRA_TEXT, spannableStringBuilder);
         startActivity(intent);
     }
 
