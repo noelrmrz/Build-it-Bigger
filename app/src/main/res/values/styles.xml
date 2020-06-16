@@ -7,7 +7,7 @@
 
     <style name="AppText">
         <item name="android:textColor">@color/textColor</item>
-        <item name="android:textSize">48sp</item>
+        <item name="android:textSize">16sp</item>
         <item name="android:fontFamily">sans-serif-condensed-medium</item>
     </style>
 

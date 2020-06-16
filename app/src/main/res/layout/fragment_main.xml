@@ -14,12 +14,14 @@
         android:id="@+id/instructions_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/AppText"
         android:text="@string/instructions" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/instructions_text_view"
+        android:padding="8dp"
         android:onClick="tellJoke"
         android:text="@string/button_text" />
 
