@@ -14,6 +14,21 @@ android {
     compileSdkVersion 28
     buildToolsVersion "26.0.3"
 
+    flavorDimensions "version"
+    productFlavors {
+        free {
+            dimension "version"
+            applicationId "com.udacity.gradle.builditbigger.free"
+            versionName "1.0Free"
+        }
+        paid {
+            dimension "version"
+            applicationId "com.udacity.gradle.builditbigger.paid"
+            versionName "1.0Paid"
+        }
+
+    }
+
     dexOptions {
         javaMaxHeapSize "4g"
     }
@@ -38,7 +53,6 @@ android {
 }
 
 dependencies {
-
     def fragment_version= '1.2.4'
 
     implementation "androidx.fragment:fragment:$fragment_version"
@@ -63,7 +77,8 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
-    testImplementation 'junit:junit:4.13'
-    testImplementation 'com.android.support.test:runner:1.0.2'
-    testImplementation 'com.android.support.test:rules:1.0.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'junit:junit:4.13'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test:rules:1.0.2'
 }
