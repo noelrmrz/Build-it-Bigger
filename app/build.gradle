@@ -50,6 +50,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets {
+        freeDebug {
+            res {
+                srcDirs 'src/freeDebug/res', 'src/freeDebug/res/'
+            }
+        }
+    }
 }
 
 dependencies {
