@@ -48,8 +48,6 @@ public class EndpointAsyncTask extends AsyncTask<MainActivity, Void, String> {
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
 
-        Toast.makeText(context,result, Toast.LENGTH_LONG).show();
-
         mainActivity.setJoke(result);
     }
 }

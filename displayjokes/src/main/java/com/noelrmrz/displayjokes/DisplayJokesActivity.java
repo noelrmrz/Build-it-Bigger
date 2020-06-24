@@ -19,7 +19,7 @@ public class DisplayJokesActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
-        TextView tvJoke = (TextView) findViewById(R.id.tv_joke);
+        TextView tvJoke = findViewById(R.id.tv_joke);
 
         Intent intent = getIntent();
         if (intent.hasExtra(Intent.EXTRA_TEXT)){
